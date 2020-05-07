@@ -10,7 +10,7 @@ echo "Make sure this script is executed AFTER you have activated a virtualenv"
 
 # install joeynmt
 
-git clone https://github.com/bricksdont/joeynmt.git $tools/joeynmt
+git clone https://github.com/sugarsword/joeynmt.git $tools/joeynmt
 
 # if necessary: first check out the correct branch:
 
