@@ -16,7 +16,7 @@ git clone https://github.com/sugarsword/joeynmt.git $tools/joeynmt
 
 cd $tools/joeynmt && git checkout factors_ss && git pull
 
-(#cd $tools/joeynmt && pip install --upgrade .)
+pip install --upgrade .
 
 # fix torch version, for reproducibility
 
