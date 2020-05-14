@@ -86,7 +86,7 @@ Realisation report:
 16) substitute the '?' with dimensions in rnn_wmt16_factors_add_deen.yaml
 17) modify train.sh to train one "add" factor model
 18) modify evaluate.sh to evaluate one "add" factor model
-19) repeated 16-18 above to train and evaluate another "add" factor model with dimension size 256
+19) repeated 15-17 above to train and evaluate another "add" factor model with dimension size 256
 15) create comparison table in README.md
 16) commit all the changes to remote joeynmt repo and joeynmt-toy-models repo
 
