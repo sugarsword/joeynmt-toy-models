@@ -23,6 +23,8 @@ device=5
 
 SECONDS=0
 
+# for model_name in rnn_wmt16_factors_concatenate_deen; do
+# for model_name in rnn_wmt16_factors_add_256_deen; do
 for model_name in rnn_wmt16_factors_add_deen; do
 
     echo "###############################################################################"
