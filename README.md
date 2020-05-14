@@ -88,7 +88,7 @@ Realisation report:
 18) modify evaluate.sh to evaluate one "add" factor model
 19) repeated 15-17 above to train and evaluate another "add" factor model with dimension size 256
 15) create comparison table in README.md
-16) commit all the changes to remote joeynmt repo and joeynmt-toy-models repo
+16) commit all the changes and push them all to remote joeynmt repo and joeynmt-toy-models repo
 
 
 Model comparison table
