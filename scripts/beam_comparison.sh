@@ -30,7 +30,7 @@ for beam_size in 5; do
 
     echo "###############################################################################"
     echo "beam_size $beam_size"
-	echo "$beam_size" >> size.txt
+	printf "$beam_size\n" >> $beam_comparison/size.txt
 	# measure time
 	SECONDS=0
     sed "s/^\(\s*beam_size\s*:\s*\).*/\1$beam_size/" configs/$model_name.yaml > $beam_comparison/beam.$beam_size.yaml
@@ -51,11 +51,11 @@ for beam_size in 5; do
 
     # compute case-sensitive BLEU on detokenized data
 
-    cat $beam_comparison/test.beam.$beam_size.$trg | sacrebleu -b $data/test.en-de.$trg >> score.txt
+    cat $beam_comparison/test.beam.$beam_size.$trg | sacrebleu -b $data/test.en-de.$trg >> $beam_comparison/score.txt
 
 	echo "time taken for beam size $beam_size:"
 	echo "$SECONDS seconds"
-	echo "$SECONDS" >> time.txt
+	printf "$SECONDS\n" >> $beam_comparison/time.txt
 done
 
 python3 $scripts/plot_beam.py --beam_size $beam_comparison/size.txt --score $beam_comparison/score.txt --time $beam_comparison/time.txt --graph $beam_comparison/beam.png
