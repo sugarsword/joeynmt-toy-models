@@ -72,7 +72,7 @@ Word-level: a collection of most frequent words and lots of <unk>s. One of the s
 	Und wir haben <unk> <unk> <unk> als <unk>.
 	<unk> <unk>. Ich liebe es.
 
-That was almost "<unk>"-poetry in a sense.
+That was almost "unk"-poetry in a sense.
 
 For all the bpe models: many short sentences are like real sentences with semantic inconsistencies. Most sentences end with repetitions of words. One example of a short sentence in the source language:
 
