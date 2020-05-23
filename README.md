@@ -122,7 +122,7 @@ I took the model 3000.bpe.ende for this analysis. The following bash file evalua
     ./scripts/beam_comparison.sh
 
 
-![beam_chart](https://github.com/sugarsword/joeynmt-toy-models/blob/ex-5/beam_chart.png)
+![beam_chart](https://github.com/sugarsword/joeynmt-toy-models/blob/ex5/beam.png)
 
 In the range from 1 to 20 the BLEU scores improve but flatten out after 10. The BLEU scores hardly improve any more after beam size 20. The evaluation time seems to increase linearly along with beam sizes.
 
