@@ -59,13 +59,14 @@ Evaluate the results of the bpe models:
 Comparison Table for the Models
 
 | Model name | Level | Vocabulary size |  BLEU |
-|---|---|---|---|---|
+|---|---|---|---|
 |word_level_ende|word|2000|5.3|
 |1000.bpe.ende|bpe|1000|4.4|
 |2000.bpe.ende|bpe|2000|6.2|
 |3000.bpe.ende|bpe|3000|8.8|
 
 Manual inspection of the translation output:
+
 Word-level: a collection of most frequent words and lots of <unk>s. One of the sentences was: 
 
 	Und wir haben <unk> <unk> <unk> als <unk>.
