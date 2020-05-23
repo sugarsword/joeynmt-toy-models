@@ -25,15 +25,15 @@ Download and split data:
 
 Preprocess data:
 
-	Select the language pair: en-de
+Select the language pair: en-de
+
+Subsample train data, tokenize train, dev, test data
 	
-	Subsample train data, tokenize train, dev, test data
+Prepare for bpe training:
 	
-	Prepare for bpe training:
+For each vocabulary size (1k, 2k, 3k)
 	
-	For each vocabulary size (1k, 2k, 3k)
-	
-	Learn a BPE vocabulary, create a joined vocabulary, apply bpe to train, dev and test data
+Learn a BPE vocabulary, create a joined vocabulary, apply bpe to train, dev and test data
 
     ./scripts/preprocess.sh
 
@@ -46,8 +46,6 @@ Evaluate the word-level model
 
     ./scripts/evaluate_word_level.sh
 	
-Evaluation result:
-
 Train bpe models with different configs: 1000.bpe.ende.yaml, 2000.bpe.ende.yaml, 3000.bpe.ende.yaml, modify train.sh manually each time before training.
 
 	./scripts/train.sh
@@ -67,7 +65,7 @@ Comparison Table for the Models
 
 Manual inspection of the translation output:
 
-Word-level: a collection of most frequent words and lots of <unk>s. One of the sentences was: 
+Word-level: a collection of most frequent words and lots of "unk"s. One of the sentences was: 
 
 	Und wir haben <unk> <unk> <unk> als <unk>.
 	<unk> <unk>. Ich liebe es.
