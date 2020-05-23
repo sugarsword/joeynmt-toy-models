@@ -31,7 +31,7 @@ python $scripts/subsample.py \
  --trg-output $data/subsample.train.$src-$trg.$trg \
  --size $train_size   
  
-
+# tokenise train, test, dev data
 for corpus in subsample.train test dev; do
 	$MOSES/tokenizer/tokenizer.perl -l $src < $data/$corpus.$src-$trg.$src > $data/tokenized.$corpus.$src-$trg.$src 
 	$MOSES/tokenizer/tokenizer.perl -l $trg < $data/$corpus.$src-$trg.$trg > $data/tokenized.$corpus.$src-$trg.$trg  
@@ -39,13 +39,13 @@ done
  
 wc -l $data/*tokenized.*
  
-# prepare bpe data for bpe_level  
-
-
+#################################################################
+# prepare bpe data for bpe_level
 # measure time
 SECONDS=0
 
 for vocab_size in 1000 2000 3000; do
+	SECONDS=0
 	# learn BPE model on train (concatenate both languages)
 	subword-nmt learn-joint-bpe-and-vocab -i $data/tokenized.subsample.train.$src-$trg.$src $data/tokenized.subsample.train.$src-$trg.$trg \
 		--write-vocabulary $shared_models/vocab.$vocab_size.$src $shared_models/vocab.$vocab_size.$trg \
@@ -62,12 +62,7 @@ for vocab_size in 1000 2000 3000; do
 		subword-nmt apply-bpe -c $shared_models/$src$trg.$vocab_size.bpe --vocabulary $shared_models/vocab.$vocab_size.$src --vocabulary-threshold $bpe_vocab_threshold < $data/tokenized.$corpus.$src-$trg.$src > $data/$vocab_size.bpe.$corpus.$src-$trg.$src
 		subword-nmt apply-bpe -c $shared_models/$src$trg.$vocab_size.bpe --vocabulary $shared_models/vocab.$vocab_size.$trg --vocabulary-threshold $bpe_vocab_threshold < $data/tokenized.$corpus.$src-$trg.$trg > $data/$vocab_size.bpe.$corpus.$src-$trg.$trg
 	done
+	echo "time taken:"
+	echo "$SECONDS seconds"
 done
-
-
-
-# sanity checks   
-
-echo "time taken:"
-echo "$SECONDS seconds"
 
