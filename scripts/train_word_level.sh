@@ -17,10 +17,10 @@ SECONDS=0
 
 
 
-# train bpe models
+# train word-level models
 
 
-CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python -m joeynmt train $configs/bpe_1000_ende.yaml
+CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python -m joeynmt train $configs/word_level_ende.yaml
 
 
 echo "time taken:"

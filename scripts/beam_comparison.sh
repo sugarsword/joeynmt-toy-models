@@ -21,12 +21,12 @@ device=5
 
 
 beam_comparison=$base/beam_comparison
-model_name=3000.bpe.ende
+model_name=bpe_3000_ende
 
 
 mkdir -p beam_comparison
 
-for beam_size in 5; do
+for beam_size in 1 2 3 4 5 6 7 9 11 15 20 30 60; do
 
     echo "###############################################################################"
     echo "beam_size $beam_size"

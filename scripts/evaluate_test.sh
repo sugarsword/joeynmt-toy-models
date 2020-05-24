@@ -24,7 +24,7 @@ device=5
 SECONDS=0
 
 
-for model_name in bpe_1000_ende; do
+for model_name in bpe_3000_ende; do
 
     echo "###############################################################################"
     echo "model_name $model_name"
@@ -33,7 +33,7 @@ for model_name in bpe_1000_ende; do
 
     mkdir -p $translations_sub
 
-    CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python -m joeynmt translate $configs/$model_name.yaml < $data/1000.bpe.test.en-de.$src > $translations_sub/$model_name.$trg
+    CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python -m joeynmt translate $configs/$model_name.yaml < $data/3000.bpe.test.en-de.$src > $translations_sub/$model_name.$trg
 
     # undo BPE (this does not do anything: https://github.com/joeynmt/joeynmt/issues/91)
 
@@ -49,7 +49,7 @@ for model_name in bpe_1000_ende; do
 
     # compute case-sensitive BLEU on detokenized data
 
-    cat $translations_sub/test.$model_name.$trg | sacrebleu $data/test.en-de.$trg
+    cat $translations_sub/test.$model_name.$trg | sacrebleu -b $data/test.en-de.$trg >> score.txt
 
 done
 

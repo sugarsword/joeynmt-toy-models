@@ -20,7 +20,7 @@ SECONDS=0
 # train bpe models
 
 
-CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python -m joeynmt train $configs/bpe_1000_ende.yaml
+CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python -m joeynmt train $configs/bpe_3000_ende.yaml
 
 
 echo "time taken:"
