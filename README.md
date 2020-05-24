@@ -59,9 +59,9 @@ Comparison Table for the Models
 | Model name | Level | Vocabulary size |  BLEU |
 |---|---|---|---|
 |word_level_ende|word|2000|5.3|
-|1000.bpe.ende|bpe|1000|4.4|
-|2000.bpe.ende|bpe|2000|6.2|
-|3000.bpe.ende|bpe|3000|8.8|
+|bpe_3000_ende|bpe|1000|4.4|
+|bpe_2000_ende|bpe|2000|6.2|
+|bpe_3000_ende|bpe|3000|8.8|
 
 Manual inspection of the translation output:
 
@@ -76,15 +76,15 @@ For all the bpe models: many short sentences are like real sentences with semant
 
 	They manage the process, they understand the process.
 
-The 1000.bpe.ende translation:
+The bpe_1000_ende translation:
 
 	Sie sind das Problem, sie sind die Frauen.
 
-The 2000.bpe.ende translation:
+The bpe_2000_ende translation:
 	
 	Sie verändert die Probleme, sie können die Probleme.
 
-The 3000.bpe.ende translation:
+The bpe_3000_ende translation:
 
 	Sie brauchen die Prozess, die Technologie verändern.
 
@@ -116,7 +116,7 @@ It gives the impression that training has not yet reached the sentence length an
 
 # Part 2 Impact of beam size on translation quality
 
-I took the model 3000.bpe.ende for this analysis. The following bash file evaluates 11 translations varying the beam sizes, recording their BLEU scores and evaluation time and plots a graph depicted below. 
+I took the best performing model from part 1, bpe_3000_ende, for this analysis. The following bash file evaluates 13 translations varying the beam sizes, recording their BLEU scores and evaluation time and plots a graph depicted below. 
 
     ./scripts/beam_comparison.sh
 
